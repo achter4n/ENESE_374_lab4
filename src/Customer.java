@@ -5,7 +5,7 @@ public class Customer {
 	private float discountRating;	//customer's discoutn rating
 	
 	//constructor
-	Customer(String name, String address, float creditRating, float discountRating) {
+	public Customer(String name, String address, float creditRating, float discountRating) {
 		this.name = name;
 		this.address = address;
 		this.creditRating = creditRating;

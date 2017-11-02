@@ -1,9 +1,18 @@
 public class Customer {
-	private String name;
-	private String address;
-	private float creditRating;
-	private float discountRating;
+	private String name;			//name of customer
+	private String address;			//customer's address
+	private float creditRating;		//customer's credit rating
+	private float discountRating;	//customer's discoutn rating
 	
+	//constructor
+	Customer(String name, String address, float creditRating, float discountRating) {
+		this.name = name;
+		this.address = address;
+		this.creditRating = creditRating;
+		this.discountRating = discountRating;
+	}
+	
+	//getters
 	public float getCreditRating() {
 		return creditRating;
 	}

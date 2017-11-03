@@ -1,4 +1,4 @@
-computer,699.99,10002
+computer,699.99,10000
 video game,79.99,10001
 camera,129.99,10002
 printer,99.99,10003

@@ -22,6 +22,7 @@ public class Order {
 
 	//calculates the order price
 	public double calculatePrice() {
+		price = 0;
 		Iterator<OrderLine> iterator = ol.iterator();	//iterator to iterate through the list
 		OrderLine currentOrder;							//current order in the line
 		Product currentProduct;							//current product being looked at
@@ -48,15 +49,15 @@ public class Order {
 	//modifies the quantity of an item
 	public void modifyOrder (int itemID, int newQuantity) {
 		Iterator<OrderLine> iterator = ol.iterator();	//iterator to iterate through the list
-		Product currentProduct;							//curent product being checked
+		OrderLine currentOrder;							//current orderLine being checked
 		
 		//while not at the end of the list
 		while(iterator.hasNext()) {
-			currentProduct = (iterator.next().getProduct());
+			currentOrder = iterator.next();
 			
 			//if the ID matches the current product, set the new quantity
-			if(currentProduct.getProductID() == itemID) {
-				iterator.next().setQuantity(newQuantity);
+			if(currentOrder.getProduct().getProductID() == itemID) {
+				currentOrder.setQuantity(newQuantity);
 			}
 		}
 	}

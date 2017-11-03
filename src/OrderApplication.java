@@ -17,7 +17,7 @@ public class OrderApplication {
 		//if an order can be created, print the price of the order
 		if (oa.createOrder(order)) {
 			System.out.printf("The price of the order is $%.1f\n", order.calculatePrice());
-			System.out.printf("Would you like to modify the order (Enter 1 for yes)?");
+			System.out.printf("Would you like to modify the order (Enter 1 for yes)? ");
 			input = Integer.parseInt(in.nextLine());
 			
 			//if input is 1, modify the order
@@ -28,6 +28,8 @@ public class OrderApplication {
 				quantity = Integer.parseInt(in.nextLine());
 				
 				order.modifyOrder(itemID, quantity);
+				
+				System.out.printf("The new price of the order is $%.1f\n", order.calculatePrice());
 			}
 		}
 		

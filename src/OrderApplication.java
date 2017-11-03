@@ -3,24 +3,21 @@ import java.io.*;
 import java.nio.file.Paths;
 import java.util.*;
 
-public class OrderApplicaion {
-	private ArrayList<Product> products = new ArrayList<Product>();
+public class OrderApplication {
+	private static ArrayList<Product> products = new ArrayList<Product>();
 	
 	public static void main(String[] args) throws IOException {
-		OrderApplicaion oa = new OrderApplicaion();
-		Order order = new Order();
+		OrderApplication oa = new OrderApplication();
+		Customer customer = new Customer("Nic Achter", "123 Road Ave", 0.0f, 0.0f);
+		Order order = new Order(customer);
 		
-		if (!oa.importCatalogue()) {
-			System.out.print("File was unable to open.");
-			return;
+		if (createOrder(order)) {
+			System.out.printf("The price of the order is $%.1f\n", order.calculatePrice());
 		}
-		oa.createOrder(order);
-		
-		order.calculatePrice();
 	}
 	
-	public boolean createOrder(Order order) throws IOException {
-		boolean open = this.importCatalogue();
+	public static boolean createOrder(Order order) throws IOException {
+		boolean open = importCatalogue();
 
 		if (open) {
 			Iterator<Product> iterator = products.iterator();
@@ -33,7 +30,7 @@ public class OrderApplicaion {
 		return open;
 	}
 
-	private boolean importCatalogue() throws IOException {
+	private static boolean importCatalogue() throws IOException {
 		boolean open = false;
 		Scanner in = null;
 		try {

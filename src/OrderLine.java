@@ -20,4 +20,9 @@ public class OrderLine {
 	public double getPrice() {
 		return price;
 	}
+	
+	//setter
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 }

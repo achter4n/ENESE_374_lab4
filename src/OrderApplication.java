@@ -9,17 +9,18 @@ public class OrderApplication {
 		OrderApplication oa = new OrderApplication();
 		Customer customer = new Customer("Nic Achter", "123 Road Ave", 0.0f, 0.0f);
 		Order order = new Order(customer);
-		Scanner in = new Scanner(System.in);
-		int input = 0;
-		int itemID;
-		int quantity;
+		Scanner in = new Scanner(System.in);	//input scanner
+		int input = 0;							//user input for deciding to modify the order
+		int itemID;								//ID of the item to be modified
+		int quantity;							//quantity of item to modify
 		
 		//if an order can be created, print the price of the order
 		if (oa.createOrder(order)) {
 			System.out.printf("The price of the order is $%.1f\n", order.calculatePrice());
-			System.out.printf("Would you like to modify the order?");
+			System.out.printf("Would you like to modify the order (Enter 1 for yes)?");
 			input = Integer.parseInt(in.nextLine());
 			
+			//if input is 1, modify the order
 			if (input == 1) {
 				System.out.printf("Enter the item ID of the item you want to modify: ");
 				itemID = Integer.parseInt(in.nextLine());
@@ -30,7 +31,7 @@ public class OrderApplication {
 			}
 		}
 		
-		in.close();
+		in.close();								//close the input scanner	
 	}
 	
 	//creates a new order
